@@ -25,6 +25,7 @@ function SignIn() {
 
     const submitHandler = async (e) => {
         e.preventDefault();
+        console.log('REACT_APP_API_BASE_URL:', process.env.REACT_APP_API_BASE_URL);
         try {
             const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/login`, {
                 email,
