@@ -5,6 +5,7 @@ import PetProfile from './components/PetProfile';
 import Register from './components/Register';
 import ProtectedRoute from './shared/context/ProtectedRoutes';
 import HomePage from './components/HomePage';
+import VetPortal from './components/VetPortal';
 
 export const router = createBrowserRouter([
   {
@@ -20,6 +21,14 @@ export const router = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <PetSelectionPage />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: '/vetportal',
+    element: (
+      <ProtectedRoute>
+        <VetPortal />
       </ProtectedRoute>
     ),
   },
