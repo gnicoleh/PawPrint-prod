@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
-const Pet = require('./Pets');
 
 const Appointment = sequelize.define('Appointment', {
     id: {
@@ -17,25 +16,27 @@ const Appointment = sequelize.define('Appointment', {
         allowNull: false,
     },
     reason: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
         allowNull: false,
     },
     petId: {
         type: DataTypes.UUID,
-        allowNull: false,
+        allowNull: true,
+        field: 'petid'
     },
     careTaker: {
         type: DataTypes.JSON,
         allowNull: true,
+        field: 'caretaker'
     },
     notes: {
         type: DataTypes.STRING(1234),
-    },
+        allowNull: true,
+    }
 }, {
     tableName: 'appointments',
     timestamps: false
 });
-
 
 
 module.exports = Appointment;
